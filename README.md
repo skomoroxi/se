@@ -1,6 +1,6 @@
 # SEO case studies
 
-Static website with three SEO case studies in English and Russian, hosted on Cloudflare Pages.
+Static website with three SEO case studies in English and Russian, hosted on Cloudflare (Workers static assets).
 
 | URL | Page |
 | --- | --- |
@@ -10,7 +10,7 @@ Static website with three SEO case studies in English and Russian, hosted on Clo
 
 ## Structure
 
-- `public/`: the website that Cloudflare Pages serves (pre-built, no build step needed).
+- `public/`: the website that Cloudflare serves (pre-built, no build step needed).
 - `build/src/`: source pages; `build/images.json` maps image ids to files in `public/img/`.
 - `build/build.mjs`: regenerates `public/` from the sources.
 
@@ -22,7 +22,8 @@ node build/build.mjs
 SITE_URL=https://your-domain.example node build/build.mjs
 ```
 
-## Cloudflare Pages settings
+## Cloudflare settings
 
-Framework preset: None · Build command: *(empty)* · Build output directory: `public`
-(also declared in `wrangler.toml`).
+The site is deployed as a Worker with static assets (`wrangler.toml` points `[assets]` at `public/`).
+Workers Builds: Build command *(empty)* · Deploy command `npx wrangler deploy`.
+The Worker name in the Cloudflare dashboard must match `name` in `wrangler.toml` (`se`).
