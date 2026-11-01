@@ -25,9 +25,9 @@ const PAGES = {
   'Case3_ru.dc.html': { out: 'ru/case-3/', lang: 'ru', pair: 'Case3.dc.html',
     desc: 'SEO-кейс: софт для конвертации файлов утроил трафик из Google со 187 000 до 564 000 визитов в месяц за счёт ссылок, programmatic SEO и 14 языков.' },
   'Case4.dc.html':    { out: 'case-4/',    lang: 'en', pair: 'Case4_ru.dc.html',
-    desc: 'SEO case study: a trading platform grew non-brand traffic 8× in a year after the SEO specialist automated content updates in n8n, with no developer resources.' },
+    desc: 'SEO case study: a trading platform grew non-brand traffic 6× in a year (6,200 → 38,900 visits a month) after the SEO specialist automated content updates in n8n, with a minimal link budget and no developer resources.' },
   'Case4_ru.dc.html': { out: 'ru/case-4/', lang: 'ru', pair: 'Case4.dc.html',
-    desc: 'SEO-кейс: платформа для трейдинга увеличила небрендовый трафик в 8 раз за год после того, как SEO-оптимизатор автоматизировал обновление контента в n8n без ресурсов разработки.' },
+    desc: 'SEO-кейс: платформа для трейдинга увеличила небрендовый трафик в 6 раз за год (с 6 200 до 38 900 визитов в месяц) после того, как SEO-оптимизатор автоматизировал обновление контента в n8n при минимальном ссылочном бюджете и без ресурсов разработки.' },
 };
 
 const IMAGES = JSON.parse(fs.readFileSync(path.join(ROOT, 'build', 'images.json'), 'utf8'));
