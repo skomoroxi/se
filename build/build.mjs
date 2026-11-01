@@ -1,6 +1,6 @@
 // Builds the static site from the design pages in build/src/*.dc.html.
 // Usage: node build/build.mjs   (run from the repository root)
-// Output: public/ (index.html, ru/, case-2/, case-3/, ru/case-2/, ru/case-3/; images live in public/img/).
+// Output: public/ (index.html, case-2/ … case-4/ and their ru/ versions; images live in public/img/).
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -24,6 +24,10 @@ const PAGES = {
     desc: 'SEO case study: file conversion software tripled Google traffic from 187,000 to 564,000 visits a month with links, programmatic SEO and 14 languages.' },
   'Case3_ru.dc.html': { out: 'ru/case-3/', lang: 'ru', pair: 'Case3.dc.html',
     desc: 'SEO-кейс: софт для конвертации файлов утроил трафик из Google со 187 000 до 564 000 визитов в месяц за счёт ссылок, programmatic SEO и 14 языков.' },
+  'Case4.dc.html':    { out: 'case-4/',    lang: 'en', pair: 'Case4_ru.dc.html',
+    desc: 'SEO case study: a trading platform grew non-brand traffic 8× in a year after the SEO specialist automated content updates in n8n, with no developer resources.' },
+  'Case4_ru.dc.html': { out: 'ru/case-4/', lang: 'ru', pair: 'Case4.dc.html',
+    desc: 'SEO-кейс: платформа для трейдинга увеличила небрендовый трафик в 8 раз за год после того, как SEO-оптимизатор автоматизировал обновление контента в n8n без ресурсов разработки.' },
 };
 
 const IMAGES = JSON.parse(fs.readFileSync(path.join(ROOT, 'build', 'images.json'), 'utf8'));
@@ -56,6 +60,8 @@ for (const [file, meta] of Object.entries(PAGES)) {
   const src = fs.readFileSync(path.join(SRC, file), 'utf8');
   const vals = renderVals(src);
   const title = src.match(/<title>([\s\S]*?)<\/title>/)[1];
+  // Carry a robots meta tag (e.g. noindex) from the source page's <head>.
+  const robots = (src.match(/<meta name="robots"[^>]*>/) || [''])[0];
   const helmet = src.match(/<helmet>([\s\S]*?)<\/helmet>/)[1].trim();
   let body = src.match(/<\/helmet>([\s\S]*?)<\/x-dc>/)[1];
 
@@ -87,6 +93,7 @@ for (const [file, meta] of Object.entries(PAGES)) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+${robots}
 <title>${title}</title>
 <meta name="description" content="${esc(meta.desc)}">
 <meta property="og:type" content="article">

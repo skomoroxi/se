@@ -1,12 +1,13 @@
 # SEO case studies
 
-Static website with three SEO case studies in English and Russian, hosted on Cloudflare (Workers static assets).
+Static website with four SEO case studies in English and Russian, hosted on Cloudflare (Workers static assets).
 
 | URL | Page |
 | --- | --- |
 | `/` · `/ru/` | Case 1: interior-design SaaS, Germany ($370 link budget) |
 | `/case-2/` · `/ru/case-2/` | Case 2: SMS-verification SaaS, brand recovery |
 | `/case-3/` · `/ru/case-3/` | Case 3: file-conversion software, 3× traffic |
+| `/case-4/` · `/ru/case-4/` | Case 4: trading platform, 8× non-brand traffic with n8n automation |
 
 ## Structure
 
