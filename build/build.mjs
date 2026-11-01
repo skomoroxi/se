@@ -104,6 +104,8 @@ ${robots}
 ${alt.join('\n')}
 ${helmet}
 <style>img{max-width:100%}*,*::before,*::after{box-sizing:border-box}</style>
+<link rel="stylesheet" href="/contact.css">
+<script src="/contact.js" defer></script>
 </head>
 <body>${body}</body>
 </html>

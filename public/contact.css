@@ -1,0 +1,56 @@
+/* "Discuss your project" modal */
+.cf-dialog {
+  width: min(560px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: #FFFFFF;
+  color: #15181C;
+  box-shadow: 0 24px 64px rgba(14, 26, 43, 0.35);
+  font-family: Inter, system-ui, sans-serif;
+  overflow: auto;
+}
+.cf-dialog::backdrop { background: rgba(14, 26, 43, 0.6); }
+.cf-form { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.cf-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.cf-head h2 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 28px; line-height: 1.15; }
+.cf-close {
+  flex: 0 0 auto; width: 44px; height: 44px; margin: -8px -8px 0 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 0; border-radius: 10px; background: transparent; color: #444C57; cursor: pointer;
+}
+.cf-close:hover { background: #EEF1EA; color: #15181C; }
+.cf-intro { margin: 0; color: #444C57; font-size: 16px; line-height: 1.5; }
+.cf-body, .cf-done { display: flex; flex-direction: column; gap: 16px; }
+.cf-body[hidden], .cf-done[hidden] { display: none; }
+.cf-field { display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 500; }
+.cf-field b { color: #B42318; font-weight: 600; }
+.cf-field i { color: #5B636E; font-weight: 400; font-style: normal; }
+.cf-field input, .cf-field textarea {
+  width: 100%; box-sizing: border-box; padding: 12px 14px; min-height: 48px;
+  border: 1px solid #C9CFC4; border-radius: 10px; background: #FFFFFF; color: #15181C;
+  font: 400 16px/1.4 Inter, system-ui, sans-serif;
+}
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-field input:focus, .cf-field textarea:focus { outline: 2px solid #1D4ED8; outline-offset: 1px; border-color: #1D4ED8; }
+.cf-field [aria-invalid="true"] { border-color: #B42318; outline-color: #B42318; }
+.cf-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.cf-status { margin: 0; min-height: 0; font-size: 15px; color: #444C57; }
+.cf-status:empty { display: none; }
+.cf-status.cf-error { color: #B42318; }
+.cf-submit {
+  min-height: 52px; padding: 0 28px; border: 0; border-radius: 12px;
+  background: #1D4ED8; color: #FFFFFF; font: 600 17px/1 Inter, system-ui, sans-serif; cursor: pointer;
+}
+.cf-submit:hover { background: #1E40AF; }
+.cf-submit:disabled { opacity: 0.6; cursor: progress; }
+.cf-legal { margin: 0; font-size: 12px; line-height: 1.5; color: #5B636E; }
+.cf-legal a { color: #444C57; }
+.cf-done p { margin: 0; font-size: 18px; line-height: 1.5; }
+/* The reCAPTCHA badge is hidden; the required notice is shown in the form instead. */
+.grecaptcha-badge { visibility: hidden !important; }
+/* Page call-to-action button */
+[data-contact-open] { border: 0; cursor: pointer; font-family: inherit; font-size: inherit; }
+[data-contact-open]:hover { background: #E7ECF7 !important; }
+[data-contact-open]:focus-visible { outline: 3px solid #9DB8FF; outline-offset: 3px; }

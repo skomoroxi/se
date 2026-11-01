@@ -1,8 +1,17 @@
-# Cloudflare Workers static site: serves the pre-built files in public/.
-name = "se"
+# Cloudflare Worker "cv": serves the pre-built site in public/ and handles the contact form (src/worker.js).
+name = "cv"
+main = "src/worker.js"
 compatibility_date = "2026-10-01"
 
 [assets]
 directory = "./public"
+binding = "ASSETS"
 not_found_handling = "404-page"
 html_handling = "auto-trailing-slash"
+run_worker_first = ["/api/*"]
+
+[vars]
+CONTACT_TO = "degustati@gmail.com"
+RECAPTCHA_MIN_SCORE = "0.5"
+# Set in the Cloudflare dashboard (Settings → Variables and Secrets), not here:
+#   RECAPTCHA_SITE_KEY (text), RECAPTCHA_SECRET (secret), RESEND_API_KEY (secret)
