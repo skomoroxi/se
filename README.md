@@ -48,7 +48,7 @@ The recipient address and all keys live only on the server; none of them appear 
    (type: score-based / v3) and add the site's domain (e.g. `cv.skomoroxi-28e.workers.dev`
    and any custom domain). You get a *site key* and a *secret key*.
 2. **Resend**: sign up at <https://resend.com> with the address that should receive requests
-   (`degustati@gmail.com`) and create an API key. Without a verified domain, Resend sends
+   (`skomoroxi@gmail.com`) and create an API key. Without a verified domain, Resend sends
    from `onboarding@resend.dev` and only to the account's own address, which is enough here.
    To send from your own domain later, verify it in Resend and set `MAIL_FROM`.
 3. In Cloudflare: **Workers & Pages → cv → Settings → Variables and Secrets**, add:
